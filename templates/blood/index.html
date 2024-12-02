@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .xyz {
+            ma`gin-bottom: 0px;
+            background-image: url('{% static "image/homebg1.jpg" %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+  {% include "blood/navbar.html" %}
+
+  <section id="section-jumbotron" class="jumbotron jumbotron-fluid xyz">
+      <div class="container text-center">
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br>
+      </div>  
+  </section>
+
+  {% include "blood/footer.html" %}
+</body>
+</html>

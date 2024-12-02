@@ -1,0 +1,209 @@
+{% load static %}
+{% load widget_tweaks %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+    <style>
+        .page-wrapper {
+            background-image: url('{% static "image/11.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .btn-glow {
+            background-color: #FF0000; /* Plain white background */
+            color: #FFFFFF; /* Dark text color */
+            border: none;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 0;
+            border-radius: 12px;
+            padding: 8px 20px;
+            font-weight: bold;
+        }
+
+        /* Glowing effect without hover */
+        .btn-glow::before {
+            content: "";
+            background: linear-gradient(45deg, #FF0000, #FFFFFF, #FF0000, #FFFFFF);
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            background-size: 400%;
+            z-index: -1;
+            width: calc(100% + 4px);
+            height: calc(100% + 4px);
+            filter: blur(8px);
+            animation: glowing 20s linear infinite;
+            transition: opacity .3s ease-in-out;
+            border-radius: 12px;
+            opacity: 1; /* Keep visible at all times */
+        }
+
+        /* Animation for glowing effect */
+        @keyframes glowing {
+            0% { background-position: 0 0; }
+            50% { background-position: 400% 0; }
+            100% { background-position: 0 0; }
+        }
+
+        .button-container {
+            text-align: left;
+            margin-top: 20px;
+        }
+    </style>
+  </head>
+  <body>
+    {% include "blood/navbar.html" %}
+
+    <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+        <div class="wrapper wrapper--w790">
+            <br><br><br>
+            <div class="card card-5">
+                <div class="card-heading">
+                    <h2 class="title">Admin Login</h2>
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="name">Username</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {% render_field form.username class="input--style-5" %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="name">Password</div>
+                            <div class="value">
+                                <div class="input-group">
+                                    {% render_field form.password class="input--style-5" %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button class="btn-glow" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% include "blood/footer.html" %}
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/e9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </bo
+  {% load static %}
+  {% load widget_tweaks %}
+  <!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.css">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+      <link href="{% static 'css/main.css' %}" rel="stylesheet" media="all">
+      <style>
+          .page-wrapper {
+              background-image: url('{% static "image/11.jpg" %}');
+              background-size: cover;
+              background-position: center;
+              background-repeat: no-repeat;
+          }
+  
+          .btn-glow {
+              background-color: #FF0000; /* Plain white background */
+              color: #FFFFFF; /* Dark text color */
+              border: none;
+              outline: none;
+              cursor: pointer;
+              position: relative;
+              z-index: 0;
+              border-radius: 12px;
+              padding: 8px 20px;
+              font-weight: bold;
+          }
+  
+          /* Glowing effect without hover */
+          .btn-glow::before {
+              content: "";
+              background: linear-gradient(45deg, #FF0000, #FFFFFF, #FF0000, #FFFFFF);
+              position: absolute;
+              top: -2px;
+              left: -2px;
+              background-size: 400%;
+              z-index: -1;
+              width: calc(100% + 4px);
+              height: calc(100% + 4px);
+              filter: blur(8px);
+              animation: glowing 20s linear infinite;
+              transition: opacity .3s ease-in-out;
+              border-radius: 12px;
+              opacity: 1; /* Keep visible at all times */
+          }
+  
+          /* Animation for glowing effect */
+          @keyframes glowing {
+              0% { background-position: 0 0; }
+              50% { background-position: 400% 0; }
+              100% { background-position: 0 0; }
+          }
+  
+          .button-container {
+              text-align: left;
+              margin-top: 20px;
+          }
+      </style>
+    </head>
+    <body>
+      {% include "blood/navbar.html" %}
+  
+      <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+          <div class="wrapper wrapper--w790">
+              <br><br><br>
+              <div class="card card-5">
+                  <div class="card-heading">
+                      <h2 class="title">Admin Login</h2>
+                  </div>
+                  <div class="card-body">
+                      <form method="POST">
+                          {% csrf_token %}
+                          <div class="form-row">
+                              <div class="name">Username</div>
+                              <div class="value">
+                                  <div class="input-group">
+                                      {% render_field form.username class="input--style-5" %}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="form-row">
+                              <div class="name">Password</div>
+                              <div class="value">
+                                  <div class="input-group">
+                                      {% render_field form.password class="input--style-5" %}
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="button-container">
+                              <button class="btn-glow" type="submit">Login</button>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      {% include "blood/footer.html" %}
+      <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/e9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </bo
+  
